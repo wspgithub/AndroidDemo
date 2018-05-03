@@ -35,8 +35,16 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         ((MyViewHolder)holder).name.setText(dataList.get(position).getName());
+        ((MyViewHolder)holder).name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(context,dataList.get(position).getaClass());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -46,9 +54,6 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent();
-        intent.setClass(this.context,dataList.get(position).getaClass());
-        this.context.startActivity(intent);
     }
 
 

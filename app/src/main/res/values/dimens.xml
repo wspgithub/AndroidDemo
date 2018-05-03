@@ -1,0 +1,147 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="title_textsize">20sp</dimen>
+    <dimen name="margin_55_dp">55dp</dimen>
+    <dimen name="margin_border_12dp">12dp</dimen>
+    <dimen name="margin_border_50dp">50dp</dimen>
+    <dimen name="systemsetting_main_text_size">16sp</dimen>
+    <dimen name="mngmain_grid_icon_size">64.0dip</dimen>
+    <dimen name="zone_net_item_bypass_textsize">6sp</dimen>
+    <dimen name="test_size">64.0dip</dimen>
+    <dimen name="dialog_title_textsize">18sp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="wordSize">23sp</dimen>
+    <dimen name="scene_mode_configure_textsize">18sp</dimen>
+    <dimen name="device_abst_textsize">15sp</dimen>
+    <dimen name="border_line_height">1px</dimen>
+
+    <!-- 1280x720 app_about.xml -->
+    <dimen name="ss">64.0dip</dimen>
+    <dimen name="custom_ir_icon_size">42dp</dimen>
+    <dimen name="ep_control_padding_bottom">8dp</dimen>
+    <dimen name="ep_control_onofftoggle_height">29dp</dimen>
+    <dimen name="device_mng_title_padding_left">3dp</dimen>
+    <dimen name="device_mng_title_height">30dp</dimen>
+
+    <!-- device mng -->
+    <dimen name="device_mng_item_title">18sp</dimen>
+    <dimen name="device_mng_item_num">34sp</dimen>
+    <dimen name="device_mng_click_width">73dp</dimen>
+    <dimen name="device_mng_click_height">30dp</dimen>
+
+    <!-- v2 -->
+
+
+    <!-- Head -->
+    <dimen name="v2_head_text_size">18sp</dimen>
+
+    <!-- Standart dimens for the color wheel -->
+    <dimen name="color_wheel_radius">60dp</dimen>
+    <dimen name="color_wheel_thickness">18dp</dimen>
+    <dimen name="color_center_halo_radius">34dp</dimen>
+    <dimen name="color_center_radius">34dp</dimen>
+    <dimen name="color_pointer_halo_radius">10dp</dimen>
+    <dimen name="color_pointer_radius">10dp</dimen>
+
+    <dimen name="magin_head_view">15dp</dimen>
+
+    <!--dp通用部分-->
+    <dimen name="common_0_5_dp">0.5dp</dimen>
+    <dimen name="common_2_dp">2dp</dimen>
+    <dimen name="common_4_dp">4dp</dimen>
+    <dimen name="common_5_dp">5dp</dimen>
+    <dimen name="common_8_dp">8dp</dimen>
+    <dimen name="common_10_dp">10dp</dimen>
+    <dimen name="common_12_dp">12dp</dimen>
+    <dimen name="common_14_dp">14dp</dimen>
+    <dimen name="common_15_dp">15dp</dimen>
+    <dimen name="common_20_dp">20dp</dimen>
+    <dimen name="common_22_dp">22dp</dimen>
+    <dimen name="common_24_dp">24dp</dimen>
+    <dimen name="common_25_dp">25dp</dimen>
+    <dimen name="common_30_dp">30dp</dimen>
+    <dimen name="common_35_dp">35dp</dimen>
+    <dimen name="common_40_dp">40dp</dimen>
+    <dimen name="common_45_dp">45dp</dimen>
+    <dimen name="common_50_dp">50dp</dimen>
+    <dimen name="common_55_dp">55dp</dimen>
+    <dimen name="common_60_dp">60dp</dimen>
+    <dimen name="common_65_dp">65dp</dimen>
+    <dimen name="common_70_dp">70dp</dimen>
+    <dimen name="common_80_dp">80dp</dimen>
+    <dimen name="common_90_dp">90dp</dimen>
+    <dimen name="common_100_dp">100dp</dimen>
+    <dimen name="common_120_dp">120dp</dimen>
+    <dimen name="common_130_dp">130dp</dimen>
+    <dimen name="common_140_dp">140dp</dimen>
+    <dimen name="common_150_dp">150dp</dimen>
+    <dimen name="common_160_dp">160dp</dimen>
+    <dimen name="common_180_dp">180dp</dimen>
+    <dimen name="common_200_dp">200dp</dimen>
+    <dimen name="common_230_dp">230dp</dimen>
+    <dimen name="common_240_dp">240dp</dimen>
+    <dimen name="common_250_dp">250dp</dimen>
+    <dimen name="common_260_dp">260dp</dimen>
+    <dimen name="common_280_dp">280dp</dimen>
+    <dimen name="common_300_dp">300dp</dimen>
+    <dimen name="common_340_dp">340dp</dimen>
+    <dimen name="common_350_dp">350dp</dimen>
+    <dimen name="common_360_dp">360dp</dimen>
+    <dimen name="common_380_dp">380dp</dimen>
+    <dimen name="common_400_dp">400dp</dimen>
+    <dimen name="common_410_dp">410dp</dimen>
+    <dimen name="common_415_dp">415dp</dimen>
+    <dimen name="common_420_dp">420dp</dimen>
+    <dimen name="common_425_dp">425dp</dimen>
+    <dimen name="common_430_dp">430dp</dimen>
+    <dimen name="common_435_dp">435dp</dimen>
+    <dimen name="common_440_dp">440dp</dimen>
+    <dimen name="common_445_dp">445dp</dimen>
+    <dimen name="common_450_dp">450dp</dimen>
+    <dimen name="common_455_dp">455dp</dimen>
+    <dimen name="common_460_dp">460dp</dimen>
+    <dimen name="common_465_dp">465dp</dimen>
+    <dimen name="common_470_dp">470dp</dimen>
+    <dimen name="common_475_dp">475dp</dimen>
+    <dimen name="common_480_dp">480dp</dimen>
+    <dimen name="common_485_dp">485dp</dimen>
+    <dimen name="common_490_dp">490dp</dimen>
+    <dimen name="common_495_dp">495dp</dimen>
+    <dimen name="common_500_dp">500dp</dimen>
+
+
+    <!--sp通用部分-->
+    <dimen name="text_10_sp">10sp</dimen>
+    <dimen name="text_12_sp">12sp</dimen>
+    <dimen name="text_14_sp">14sp</dimen>
+    <dimen name="text_16_sp">16sp</dimen>
+    <dimen name="text_18_sp">18sp</dimen>
+    <dimen name="text_20_sp">20sp</dimen>
+    <dimen name="text_22_sp">22sp</dimen>
+    <dimen name="text_24_sp">24sp</dimen>
+    <dimen name="text_26_sp">26sp</dimen>
+    <dimen name="text_28_sp">28sp</dimen>
+    <dimen name="text_30_sp">30sp</dimen>
+    <dimen name="text_35_sp">35sp</dimen>
+    <dimen name="text_40_sp">40sp</dimen>
+
+    <!--主页设备列表部分-->
+    <dimen name="device_item_height">76dp</dimen>
+    <dimen name="device_item_margin_top">9dp</dimen>
+    <dimen name="device_item_weight">16sp</dimen>
+    <dimen name="device_offline_tx_size">16sp</dimen>
+    <dimen name="device_offline_img_width">25dp</dimen>
+    <dimen name="device_offline_img_height">25dp</dimen>
+    <dimen name="device_offline_right">10dp</dimen>
+    <dimen name="device_status_text">20sp</dimen>
+    <dimen name="device_toggle_width">45sp</dimen>
+    <dimen name="device_toggle_height">20sp</dimen>
+
+    <!--侧滑菜单item高度-->
+    <dimen name="item_height">150dp</dimen>
+</resources>
