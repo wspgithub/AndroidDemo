@@ -1,25 +1,30 @@
 package com.example.administrator.myapplication;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 
-public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements AdapterView.OnItemClickListener {
 
 
+    private Context context;
     private ArrayList<MainListItem> dataList = new ArrayList<>();
 
     public ArrayList<MainListItem> getDataList() {
         return dataList;
     }
 
-    public MainRecyclerViewAdapter(ArrayList<MainListItem> dataList) {
+    public MainRecyclerViewAdapter(Context context,ArrayList<MainListItem> dataList) {
+        this.context = context;
         this.dataList = dataList;
     }
 
@@ -39,6 +44,12 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
         return dataList.size();
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent();
+        intent.setClass(this.context,dataList.get(position).getaClass());
+        this.context.startActivity(intent);
+    }
 
 
     private static class MyViewHolder extends RecyclerView.ViewHolder {

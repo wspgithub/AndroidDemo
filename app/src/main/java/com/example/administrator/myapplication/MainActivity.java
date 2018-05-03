@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void init(){
         arrayList.add(new MainListItem("RecyclerView测试",null));
-        MainRecyclerViewAdapter mainRecyclerViewAdapter = new MainRecyclerViewAdapter(arrayList);
+        MainRecyclerViewAdapter mainRecyclerViewAdapter = new MainRecyclerViewAdapter(this,arrayList);
         recyclerView.setAdapter(mainRecyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.getAdapter().notifyDataSetChanged();
