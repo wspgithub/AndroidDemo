@@ -19,8 +19,11 @@
 
         <activity
             android:name=".SeekBarTest.SeekBarTestActivity"
-            android:screenOrientation="portrait"
-             />
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".FramentTest.TabFramentTest"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
