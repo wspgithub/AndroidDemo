@@ -24,6 +24,9 @@
         <activity
             android:name=".FramentTest.TabFramentTest"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".DataBindingTest.DataBingTestActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

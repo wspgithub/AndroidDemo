@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 
+import com.example.administrator.myapplication.DataBindingTest.DataBingTestActivity;
 import com.example.administrator.myapplication.FramentTest.TabFramentTest;
 import com.example.administrator.myapplication.SeekBarTest.SeekBarTestActivity;
 
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private void init(){
         arrayList.add(new MainListItem("TextThumbSeekbar测试",SeekBarTestActivity.class));
         arrayList.add(new MainListItem("TabFramentTest测试",TabFramentTest.class));
+        arrayList.add(new MainListItem("DataBingTest测试",DataBingTestActivity.class));
         MainRecyclerViewAdapter mainRecyclerViewAdapter = new MainRecyclerViewAdapter(this,arrayList);
         recyclerView.setAdapter(mainRecyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
