@@ -10,7 +10,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import com.example.administrator.myapplication.MainActivity;
+import com.example.administrator.myapplication.Annotation.ShowActivity;
 import com.example.administrator.myapplication.R;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2018/5/4.
  */
-
+@ShowActivity()
 public class TabFramentTest extends AppCompatActivity {
 
     private ViewPager mViewPager;

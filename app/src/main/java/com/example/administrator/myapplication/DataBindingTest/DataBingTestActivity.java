@@ -4,13 +4,15 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.administrator.myapplication.Annotation.ShowActivity;
+import com.example.administrator.myapplication.DataBindingTest.User;
 import com.example.administrator.myapplication.R;
 import com.example.administrator.myapplication.databinding.DataBindingUserBinding;
 
 /**
  * Created by Administrator on 2018/5/7.
  */
-
+@ShowActivity()
 public class DataBingTestActivity extends AppCompatActivity {
 
     private DataBindingUserBinding dataBindingUserBinding;
