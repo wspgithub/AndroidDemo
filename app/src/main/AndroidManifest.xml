@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.administrator.myapplication">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -30,6 +32,12 @@
 
         <activity
             android:name=".ArchitectureComponents.HandingLifecycleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".OkHttp.OkHttpTestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ThreadPoolTest.ThreadPoolActivty"
             android:screenOrientation="portrait" />
     </application>
 
