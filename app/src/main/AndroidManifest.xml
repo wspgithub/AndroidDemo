@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.administrator.myapplication.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,25 +20,34 @@
         </activity>
 
         <activity
-            android:name=".SeekBarTest.SeekBarTestActivity"
+            android:name="com.example.administrator.myapplication.SeekBarTest.SeekBarTestActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".FramentTest.TabFramentTest"
+            android:name="com.example.administrator.myapplication.FramentTest.TabFramentTest"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DataBindingTest.DataBingTestActivity"
+            android:name="com.example.administrator.myapplication.DataBindingTest.DataBingTestActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ArchitectureComponents.HandingLifecycleActivity"
+            android:name="com.example.administrator.myapplication.ArchitectureComponents.HandingLifecycleActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".OkHttp.OkHttpTestActivity"
+            android:name="com.example.administrator.myapplication.OkHttp.OkHttpTestActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ThreadPoolTest.ThreadPoolActivty"
+            android:name="com.example.administrator.myapplication.ThreadPoolTest.ThreadPoolActivty"
             android:screenOrientation="portrait" />
+
+        <activity android:name=".AIDLTest.BookManagerClient"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <service android:name=".AIDLTest.BookManagerService"
+            android:process=":remote"
+            >
+        </service>
     </application>
 
 </manifest>

@@ -7,9 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 
-import com.example.administrator.myapplication.DataBindingTest.DataBingTestActivity;
-import com.example.administrator.myapplication.FramentTest.TabFramentTest;
-import com.example.administrator.myapplication.SeekBarTest.SeekBarTestActivity;
 import com.example.administrator.myapplication.Annotation.ShowActivity;
 
 import java.util.ArrayList;
