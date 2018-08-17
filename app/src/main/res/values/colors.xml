@@ -1,6 +1,335 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+
+    <!--主色-->
+    <color name="colorPrimary">#5daff9</color>
+    <color name="colorPrimaryDark">#5daff9</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="transform_colorPrimary">#dd5daff9</color>
+
+    <!--          通用部分           -->
+    <color name="doorsensor_detail_item_unselect_textcolor">#656565</color>
+    <color name="popup_main_background">#b0000000</color>
+    <!-- 黑色 -->
+    <color name="text_black">#222222</color>
+    <!-- 浅黑色 -->
+    <color name="text_light_black">#333333</color>
+    <!-- 灰色 -->
+    <color name="text_gray">#666666</color>
+    <!-- 浅灰色 -->
+    <color name="text_light_gray">#888888</color>
+    <!-- 编辑框hint -->
+    <color name="text_hint">#cfcfcf</color>
+    <!-- 白色 -->
+    <color name="text_white">#ffffff</color>
+    <!-- 橙色 -->
+    <color name="text_orange">#f2914a</color>
+    <!-- 深橙色 -->
+    <color name="text_dark_orange">#d84801</color>
+    <!-- 蓝色 -->
+    <color name="text_blue">#0572c7</color>
+    <!-- 蓝色 -->
+    <color name="energy_blue">#308EEC</color>
+    <!-- 浅蓝色 -->
+    <color name="text_light_blue">#55b1f8</color>
+    <color name="item_blue_down">#468ac9</color>
+    <color name="loaddialog_default_color">#b1000000</color>
+    <color name="loaddialog_gray_color">#449E9E9E</color>
+    <color name="gray">#cccccc</color>
+    <color name="opinion_image_gray_bg">#eff0f1</color>
+    <!-- 灰色字体 例:EditText Hint -->
+    <color name="default_text_gray">#989898</color>
+    <!-- 蓝色字体 -->
+    <color name="default_text_blue">#5daff9</color>
+    <!-- 绿色字体 -->
+    <color name="default_text_green">#19a723</color>
+    <!-- 红色字体 -->
+    <color name="default_text_red">#fc6565</color>
+
+    <!--设备在线状态-->
+    <color name="status_online">#00ca97</color>
+    <color name="status_offline">#00ca97</color>
+    <!-- 黑色字体 -->
+    <color name="default_text_black">#303030</color>
+    <!-- 默认背景 -->
+    <color name="default_bg">#f4f5fa</color>
+    <!-- tab layout指示器颜色  -->
+    <color name="default_tab_indicator_color">#ffb850</color>
+
+    <color name="translucent_black">#55000000</color>
+    <color name="btn_blue">#5daff9</color>
+
+    <color name="doorsensor_detail_share_user">#9a9a9a</color>
+    <color name="head_view_save_down">#05b586</color>
+    <color name="border_color">#c5c5c5</color>
+    <color name="login_conn_hintcolor">#ffb4b5b5</color>
+    <color name="login_conn_set_btncolor">#9db1c5</color>
+    <color name="login_long_btn_icon2">#ff32c3c8</color>
+    <color name="login_long_btn_down2">#ff2cb6bf</color>
+    <color name="divide_line_color">#d3d3d3</color>
+    <color name="pop_divide_line">#1aae94</color>
+    <color name="gray_text">#9a9a9a</color>
+    <color name="title_bg_light_gray">#e2e2e2</color>
+
+    <!-- PM2.5 -->
+    <color name="air_pm25_green">#46b13c</color>
+    <color name="air_pm25_yellow">#f2e914</color>
+    <color name="air_pm25_brown">#ff9000</color>
+    <color name="air_pm25_red">#ec181d</color>
+    <color name="air_pm25_purple">#752073</color>
+    <color name="air_pm25_dark">#700d11</color>
+    <color name="air_pm25_blue">#3eafe9</color>
+    <!-- ZA06空气健康指数等级 -->
+    <color name="addev_seekbar_bg">#00cc00</color>
+    <color name="air_a">#12cc47</color>
+    <color name="air_b">#efc500</color>
+    <color name="air_c">#ff7f02</color>
+    <color name="air_d">#fb0005</color>
+    <color name="air_e">#99014a</color>
+    <color name="air_f">#810124</color>
+    <color name="air_pm_title">#989898</color>
+    <color name="air_pm_unit">#c6c6c6</color>
+    <color name="device_abst_num">#8dd6d6</color>
+    <color name="device_abst">#00b8b8</color>
+    <color name="first_connect_bg">#1ecbc9</color>
+    <color name="temp_title">#48565a</color>
+    <color name="family_abst_title">#12ccc3</color>
+    <color name="family_abst_title_bg">#A0ffffff</color>
+    <color name="family_abst_comfor_text">#ffbb4f</color>
+    <color name="family_abst_energy_text">#ff856b</color>
+    <color name="family_abst_safe_text">#37cdd7</color>
+    <color name="family_abst_unenergy_text">#9d9c9c</color>
+    <color name="family_abst_seven_bg">#b0ffffff</color>
+    <color name="family_abst_offline">#ffff00</color>
+    <color name="notify_bottom_bg">#f3f6f9</color>
+    <color name="mode_camera_unexpan">#333333</color>
+    <color name="notify_bypass_unnormal">#f9d918</color>
+    <color name="notify_bypass_normal">#f08e75</color>
+    <color name="notify_title_bg">#ebecee</color>
+    <color name="notify_warn_divider">#cacaca</color>
+    <color name="notify_dialog_title_already_bg">#2698da</color>
+    <color name="notify_red_bottom_down">#e65231</color>
+    <color name="notify_divier">#f4a58d</color>
+    <color name="notify_red_bottom">#ec7741</color>
+    <color name="notify_title">#12cbc3</color>
+    <color name="notify_warn_text">#fff8ccc2</color>
+    <color name="home_regis_add_sub_title">#bfbfbf</color>
+    <color name="home_regis_item_bg">#90dbd8</color>
+    <color name="hint_color">#626262</color>
+    <color name="scan_bg">#ff009e96</color>
+    <color name="half_black">#90000000</color>
+    <color name="gridview_item_text_color">#669900</color>
+    <color name="btn_text_color">#669900</color>
+    <color name="textview_text_color">@android:color/white</color>
+    <color name="textview_bg_color">#669900</color>
+    <color name="half_transparent_color">#50FFFFFF</color>
+    <color name="transparent_color">#00000000</color>
+    <color name="energy_list_title">#004268</color>
+    <color name="ir_learn_dialog">#666666</color>
+    <color name="home_care_child_bg">#4bb4ba</color>
+    <color name="home_care_child_title_bg">#56bfc3</color>
+    <color name="home_register_item_unselected">#ff86bbc2</color>
+    <color name="home_register_time_unselected">#7eccce</color>
+    <color name="home_register_week_selected">#ff91f1ff</color>
+    <color name="home_register_week_unselected">#7eccce</color>
+    <color name="contents_text">#ff000000</color>
+    <color name="encode_view">#ffffffff</color>
+    <color name="help_button_view">#ffcccccc</color>
+    <color name="help_view">#ff404040</color>
+    <color name="result_image_border">#ffffffff</color>
+    <color name="result_minor_text">#ffc0c0c0</color>
+    <color name="result_points">#c000ff00</color>
+    <color name="result_text">#ffffffff</color>
+    <color name="sbc_header_text">#ff808080</color>
+    <color name="sbc_header_view">#ffffffff</color>
+    <color name="sbc_list_item">#fffff0e0</color>
+    <color name="sbc_layout_view">#ffffffff</color>
+    <color name="sbc_page_number_text">#ff000000</color>
+    <color name="sbc_snippet_text">#ff4b4b4b</color>
+    <color name="share_text">#ff000000</color>
+    <color name="share_view">#ffffffff</color>
+    <color name="status_view">#50000000</color>
+    <color name="status_text">#ffffffff</color>
+    <color name="week_unselected_color">#ffb5b5b5</color>
+    <color name="home_register_child_item_bg">#00358d99</color>
+    <color name="vifrification">#00000000</color>
+    <color name="doorlock_dialog_background">#ff106b83</color>
+    <color name="bottomline">#c0ffffff</color>
+    <color name="low_blue">#ff90dbd8</color>
+    <color name="under_low_blue">#ff73cfcf</color>
+    <color name="login_conn_set_textcolor">#ff5ec0c5</color>
+    <color name="login_user_list_item_down">#ffbadadb</color>
+    <color name="device_op_bg1">#ffebecee</color>
+    <color name="device_op_title">#ff00b0b6</color>
+    <color name="advance_list_down">#ddf4f3</color>
+    <color name="sm_select_low_blue">#ff12ccc3</color>
+    <color name="sm_select_middle_blue">#ff32c3c7</color>
+    <color name="sm_select_dark_blue">#ff009ab6</color>
+    <color name="sm_select_low_gray">#ff999999</color>
+    <color name="ir_gray">#b0b0b0</color>
+    <color name="sm_select_middle_gray">#a0000000</color>
+    <color name="list_bg_color">#ffd5d9e0</color>
+    <color name="ep_control_item_text_color">#48565a</color>
+    <color name="about_bg">#d3f1ef</color>
+    <color name="title_text_down_color">#ff142941</color>
+    <color name="text_listview_divider">#ffc4c4c4</color>
+    <color name="native_hint_color">#ff999999</color>
+
+    <!-- 萤石 -->
+    <color name="ez_alarm_btn_down">#04b999</color>
+    <color name="ez_quality_bg">#26cbc3</color>
+    <color name="ez_alarm_type_select_bottom">#FFC22E</color>
+
+    <!-- video -->
+    <color name="video_refresh_search">#12ccc3</color>
+    <color name="video_refresh_search_down">#2cb6bf</color>
+    <color name="video_list_item_bg_down">#ffddf4f3</color>
+    <color name="video_prepoint_up">#ababab</color>
+    <color name="video_prepoint_down">#2cb6bf</color>
+
+    <drawable name="middle_green">#24d9b9</drawable>
+
+    <drawable name="red">#7f00</drawable>
+    <drawable name="blue">#770000ff</drawable>
+    <drawable name="green">#7700ff00</drawable>
+    <drawable name="yellow">#77ffff00</drawable>
+    <drawable name="visitor_bg">#00313131</drawable>
+    <drawable name="transparent">#00ffffff</drawable>
+    <drawable name="user_list_bg">#ffe0e0e0</drawable>
+    <drawable name="video_refresh_search">#12ccc3</drawable>
+    <drawable name="video_refresh_search_down">#04a989</drawable>
+    <drawable name="guild_text_color_white">#ffffffff</drawable>
+    <drawable name="guild_text_color_green">#000000</drawable>
+
+    <!-- ZL01G -->
+    <color name="zl01g_light_seekbar_bg">#fcff00</color>
+    <color name="zl01g_edit_hint">#a7a7a7</color>
+    <color name="zl01g_color_on">#12ccc4</color>
+    <color name="zl01g_color_off">#bdc0bf</color>
+    <color name="home_dialog_item_select">#ddf4f2</color>
+    <color name="energy_tab_item_down">#12cbc3</color>
+    <color name="com_two_btn_text">#00b8b8</color>
+    <color name="ir_apply_ontext_subtitle">#bfedec</color>
+    <color name="ir_learned_text_color">#12ccc2</color>
+    <color name="main_head_div_bg">#838383</color>
+    <color name="main_head_bg">#303030</color>
+    <color name="farm_main_bottom_bg">#595d64</color>
+    <color name="farm_main_bottom_down">#00f9ec</color>
+    <color name="slide_tab_bg">#767676</color>
+    <color name="panel_bg">#b7b7b7</color>
+    <color name="device_title_bg">#434a54</color>
+    <color name="music_progress_bg">#12ccc3</color>
+
+    <!-- qr -->
+
+    <color name="viewfinder_frame">#ff000000</color>
+    <color name="viewfinder_laser">#ffff0000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="result_view">#b0000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="transparent">#00000000</color>
+    <color name="black">#ff000000</color>
+    <color name="gold">#b89766</color>
+    <color name="white">#ffffff</color>
+    <color name="red">#ffff0000</color>
+    <color name="one_key_diagnosis">#e93b20</color>
+    <color name="dark_red">#ffa02d38</color>
+    <color name="yellow">#ffc22f</color>
+    <color name="white_transparent">#bbffffff</color>
+
+    <color name="channel1">#12ccc3</color>
+    <color name="channel2">#c7c7c7</color>
+    <color name="tab_widget_background">#fff3f6f9</color>
+    <color name="text_title_background">#fff2f2f2</color>
+    <color name="operate_ep_name_color">#ff142843</color>
+    <color name="popup_window_background">#fff0ebe4</color>
+    <color name="hintwhite">#ffade8e7</color>
+    <color name="ir_text_dark_blue">#ff12cbc3</color>
+    <color name="edit_hint_is_not_focus">#e1e2e2</color>
+    <color name="edit_hint_is_focus">#b4b5b5</color>
+    <color name="edit_after_is_focus">#333333</color>
+    <color name="door_lock_delete_user_green">#12ccc3</color>
+    <color name="door_lock_delete_user_red">#ff786b</color>
+    <color name="energy_not_select_color">#9f9f9f</color>
+    <color name="key_board_un_click">#12ccc2</color>
+    <color name="key_board_click">#1ca7be</color>
+    <color name="color_grade_one">#10cb9e</color>
+    <color name="color_grade_two">#efc500</color>
+    <color name="color_grade_three">#ff7f02</color>
+    <color name="color_grade_four">#fb0005</color>
+    <color name="color_grade_five">#990140</color>
+    <color name="color_grade_six">#810124</color>
+    <color name="background_tab_pressed">#6633B5E5</color>
+    <color name="device_control_close_color">#848c8f</color>
+    <color name="v2_title_bg">#303030</color>
+    <color name="v2_title_divider_bg">#838383</color>
+    <color name="device_control_mode_bg_color">#767676</color>
+    <color name="device_control_mode_select_color">#00f9ec</color>
+    <color name="device_control_mode_bar_color">#01ddd4</color>
+    <color name="device_control_progress_color">#00ded2</color>
+    <color name="device_control_progress_bg_color">#cccccc</color>
+    <color name="device_control_mode_line_bg_color">#797979</color>
+    <color name="common_dialog_content">#787878</color>
+    <color name="mode_editor_dialog_btn_down">#00b8b8</color>
+    <color name="mode_editor_blue_text">#28cbf4</color>
+    <color name="mode_editor_dialog_btn_up">#d9d9d9</color>
+
+    <!-- usermng -->
+    <color name="adddev_item_down">#dddddd</color>
+    <color name="activity_bg">#f2f2f2</color>
+    <color name="user_gray_content">#9a9a9a</color>
+    <color name="user_black_title">#303030</color>
+    <color name="transform">#00000000</color>
+
+    <!-- home -->
+    <color name="device_control_open_color">#848c8f</color>
+    <color name="device_control_mode_normal_text_color">#434a54</color>
+    <color name="color_touming_b7">#45000000</color>
+    <color name="warn_stop_text_bg">#00ddd3</color>
+    <color name="bottom_tab">#747474</color>
+    <color name="psw_hint">#9a9a9a</color>
+    <color name="psw_text">#303030</color>
+    <!-- air pruifier -->
+    <color name="air_purifier">#5daff9</color>
+    <color name="air_purifier_green_bg">#51b845</color>
+    <color name="air_purifier_yellow_bg">#f3eb1a</color>
+    <color name="air_purifier_orange_bg">#fe9900</color>
+    <color name="air_purifier_red_bg">#ee1f25</color>
+    <color name="air_purifier_purple_bg">#80287e</color>
+    <color name="air_purifier_brick_red_bg">#7c1117</color>
+    <color name="air_purifier_on_off_power_button">#5daff9</color>
+    <color name="air_purifier_on_off_lock">#555daff9</color>
+
+    <!--列表颜色-->
+    <color name="list_select_color">#f1f1f1</color>
+    <color name="list_unselect_color">@color/white</color>
+    <color name="list_divide_line_color">#e6e6e6</color>
+
+    <!--背景音乐-->
+    <color name="music_name">#ffffff</color>
+    <color name="music_titel">#787878</color>
+    <color name="jindu_time">#303030</color>
+    <color name="underline">#e6e6e6</color>
+    <color name="bg_the_progress_bar">#e6e6e6</color>
+    <color name="bg_cache">#c0c0c0</color>
+    <color name="bg_music_ongoing">#5daff9</color>
+    <color name="bg_music_gradient1">#cc5daff9</color>
+    <color name="bg_music_gradient2">#ccf88cff</color>
+    <color name="bg_music_shadow">#DCD8D8</color>
+    <color name="bg_music_arc">#F5F5F5</color>
+    <color name="bg_unbind">#ffb951</color>
+    <color name="the_divider">#e6e6e6</color>
+    <color name="click_effect">#c0c0c0</color>
+    <color name="fuzzy_bg_color">#65c0c0c0</color>
+
+    <color name="person_center_bg_color">#efefef</color>
+    <color name="light_grey">#efefef</color>
+
+    <color name="dev_name">#303030</color>
+    <color name="dev_value_common">#303030</color>
+
+    <color name="search_recent_text_color">#6B6B6B</color>
+
+
 </resources>

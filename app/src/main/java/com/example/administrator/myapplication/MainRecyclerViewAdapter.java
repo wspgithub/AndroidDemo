@@ -4,13 +4,17 @@ package com.example.administrator.myapplication;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements AdapterView.OnItemClickListener {
@@ -23,6 +27,7 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
         return dataList;
     }
 
+    private ItemTouchHelper itemTouchHelper;
     public MainRecyclerViewAdapter(Context context,ArrayList<MainListItem> dataList) {
         this.context = context;
         this.dataList = dataList;
@@ -35,14 +40,28 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         ((MyViewHolder)holder).name.setText(dataList.get(position).getName());
         ((MyViewHolder)holder).name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(context,dataList.get(position).getaClass());
-                context.startActivity(intent);
+                if(dataList.get(position).getaClass()!=null) {
+                    Intent intent = new Intent();
+                    intent.setClass(context, dataList.get(position).getaClass());
+                    context.startActivity(intent);
+                }
+            }
+        });
+
+        ((MyViewHolder)holder).imageView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()){
+                    case MotionEvent.ACTION_DOWN :
+                        itemTouchHelper.startDrag(holder);
+                        break;
+                }
+                return true;
             }
         });
     }
@@ -60,10 +79,12 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
     private static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView name;
+        ImageView imageView;
 
         MyViewHolder(View itemView) {
             super(itemView);
             name = (TextView) itemView.findViewById(R.id.mainItem);
+            imageView = (ImageView) itemView.findViewById(R.id.img);
         }
     }
 
@@ -76,10 +97,18 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
         this.notifyItemRangeChanged(position,dataList.size()-position);
     }
 
+    public List<MainListItem> getItemViews() {
+        return dataList;
+    }
+
     public void clearListData()
     {
         dataList.clear();
         this.notifyDataSetChanged();
+    }
+
+    public void setItemTouchHelper(ItemTouchHelper itemTouchHelper) {
+        this.itemTouchHelper = itemTouchHelper;
     }
 
     //希尔排序-根据序号排列章节的位置

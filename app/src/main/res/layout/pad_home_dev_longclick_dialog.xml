@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/common_300_dp"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_55_dp"
+        android:gravity="center"
+        android:shadowRadius="1"
+        android:text="提示"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_18_sp" />
+
+    <LinearLayout
+        android:id="@+id/llDevDetail"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_55_dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/common_20_dp">
+
+        <ImageView
+            android:layout_width="@dimen/common_25_dp"
+            android:layout_height="@dimen/common_25_dp"
+             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/common_10_dp"
+            android:text="设备详情"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_16_sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvLine"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="@dimen/common_10_dp"
+        android:layout_marginRight="@dimen/common_10_dp"
+        android:background="@color/colorPrimary" />
+
+    <LinearLayout
+        android:id="@+id/llDevDrag"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_50_dp"
+        android:layout_marginBottom="@dimen/common_5_dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/common_20_dp">
+
+        <ImageView
+            android:layout_width="@dimen/common_25_dp"
+            android:layout_height="@dimen/common_25_dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/common_10_dp"
+            android:text="移动设备"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_16_sp" />
+    </LinearLayout>
+
+</LinearLayout>

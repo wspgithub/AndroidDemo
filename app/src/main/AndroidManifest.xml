@@ -40,7 +40,15 @@
             android:name="com.example.administrator.myapplication.ThreadPoolTest.ThreadPoolActivty"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".GridViewTest.GridViewActivity"
+            android:screenOrientation="portrait" />
+
         <activity android:name=".AIDLTest.BookManagerClient"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <activity android:name=".RecyclerViewDragTest.RecyclerViewDragActivity"
             android:screenOrientation="portrait" >
         </activity>
 
