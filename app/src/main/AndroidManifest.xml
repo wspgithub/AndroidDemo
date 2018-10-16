@@ -45,7 +45,9 @@
         <activity
             android:name=".GridViewTest.GridViewActivity"
             android:screenOrientation="portrait" />
-
+        <activity
+            android:name=".ArchitectureComponents.Paging.PagingActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".AIDLTest.BookManagerClient"
             android:screenOrientation="portrait" >
         </activity>
