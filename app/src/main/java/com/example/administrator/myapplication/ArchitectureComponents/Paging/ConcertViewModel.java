@@ -23,14 +23,17 @@ public class ConcertViewModel extends ViewModel {
     private DataSource.Factory<Integer, DataBean> myConcertDataSource =
             new DataSourceFactory();
 
-    public LiveData<PagedList<DataBean>> getConcertList() {
-        return concertList;
-    }
+
 
     private LiveData<PagedList<DataBean>> concertList =
             new LivePagedListBuilder<>(myConcertDataSource, myPagingConfig)
                     .setFetchExecutor(myExecutor)
                     .build();
+
+    public LiveData<PagedList<DataBean>> getConcertList() {
+        return concertList;
+    }
+
 
     //用于刷新数据
     public void invalidateDataSource() {

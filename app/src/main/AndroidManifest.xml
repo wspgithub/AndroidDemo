@@ -56,9 +56,14 @@
             android:screenOrientation="portrait" >
         </activity>
 
+        <activity android:name=".HandlerTest.HandlerTestActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+
         <service android:name=".AIDLTest.BookManagerService"
             android:process=":remote"
             >
+
         </service>
     </application>
 

@@ -7,7 +7,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.administrator.myapplication.MainActivity">
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="测试"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/mRecyclerView"
         android:layout_width="match_parent"

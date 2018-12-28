@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class LocalTestDataSource extends PositionalDataSource<DataBean> {
+
     @Override
     public void loadInitial(@NonNull LoadInitialParams params,
                             final @NonNull LoadInitialCallback<DataBean> callback) {

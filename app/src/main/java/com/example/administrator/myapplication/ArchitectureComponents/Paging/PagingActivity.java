@@ -36,13 +36,14 @@ public class PagingActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         mAdapter = new ConcertAdapter(this);
         recyclerView.setAdapter(mAdapter);
-        ViewModelProviders.of(this).get(null);
+        //ViewModelProviders.of(this).get(null);
         ViewModelProvider provider = new ViewModelProvider(new ViewModelStore(),new ViewModelProvider.AndroidViewModelFactory(getApplication()));
         mViewModel = provider.get(ConcertViewModel.class);
         //LiveData关联到mAdapter,并与Activity相关联
         mViewModel.getConcertList().observe(this, new Observer<PagedList<DataBean>>() {
             @Override
             public void onChanged(@Nullable PagedList<DataBean> dataBeans) {
+
                 mAdapter.submitList(mViewModel.getConcertList().getValue());
             }
         });
