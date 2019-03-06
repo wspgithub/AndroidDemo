@@ -61,7 +61,7 @@ public class HandlerTestActivity extends AppCompatActivity {
         @Override
         public void run() {
             Looper.prepare();//新建的线程是没有消息队列的，需要创建
-            //子线程的handler相遇更新UI线程需要获取UI线程的Loooper
+            //子线程的handler相要更新UI线程需要获取UI线程的Loooper
             Handler handler = new Handler(Looper.getMainLooper()){
                 @Override
                 public void handleMessage(Message msg) {

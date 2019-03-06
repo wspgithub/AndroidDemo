@@ -60,6 +60,10 @@
             android:screenOrientation="portrait" >
         </activity>
 
+        <activity android:name=".Components.SpinnerActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+
         <service android:name=".AIDLTest.BookManagerService"
             android:process=":remote"
             >
