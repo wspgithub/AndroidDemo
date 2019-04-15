@@ -20,6 +20,9 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".Test.Test"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name="com.example.administrator.myapplication.SeekBarTest.SeekBarTestActivity"
@@ -61,6 +64,10 @@
         </activity>
 
         <activity android:name=".Components.SpinnerActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <activity android:name=".anim.AnimActivity"
             android:screenOrientation="portrait" >
         </activity>
 

@@ -23,6 +23,7 @@ import java.util.List;
 @ShowActivity
 public class BookManagerClient extends AppCompatActivity {
 
+    private IBookManager iBookManager;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +35,10 @@ public class BookManagerClient extends AppCompatActivity {
     private ServiceConnection serviceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            IBookManager iBookManager = IBookManager.Stub.asInterface(service);
+            iBookManager  = IBookManager.Stub.asInterface(service);
+
             try {
+                service.linkToDeath(deathRecipient,0);
                 List<Book> list = iBookManager.getBookList();
                 for (Book book:list){
                     Log.e("打印",book.getBookName());
@@ -48,6 +51,20 @@ public class BookManagerClient extends AppCompatActivity {
         @Override
         public void onServiceDisconnected(ComponentName name) {
 
+        }
+    };
+
+    private IBinder.DeathRecipient deathRecipient = new IBinder.DeathRecipient() {
+        @Override
+        public void binderDied() {
+          if(iBookManager == null)
+              return;
+
+            iBookManager.asBinder().unlinkToDeath(deathRecipient,0);
+            iBookManager = null;
+            //重新绑定远程服务
+            Intent intent = new Intent(BookManagerClient.this,BookManagerService.class);
+            bindService(intent,serviceConnection, Context.BIND_AUTO_CREATE);
         }
     };
 
