@@ -23,7 +23,7 @@ public class Test extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.test);
+        setContentView(R.layout.one_button_layout);
         testAsyncTask = new TestAsyncTask();
         testTwo = new TestTwo();
         button = findViewById(R.id.button);
