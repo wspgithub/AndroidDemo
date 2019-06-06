@@ -1,7 +1,12 @@
 package com.example.administrator.myapplication;
 
-import com.qihoo360.replugin.RePluginApplication;
+import android.app.Application;
 
-public class MainApplication extends RePluginApplication {
+//import com.qihoo360.replugin.RePluginApplication;
+//
+//public class MainApplication extends RePluginApplication {
+//
+//}
+public class MainApplication extends Application {
 
 }

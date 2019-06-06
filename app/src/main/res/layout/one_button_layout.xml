@@ -9,4 +9,9 @@
         android:layout_width="@dimen/common_100_dp"
         android:layout_height="@dimen/common_100_dp" />
 
+    <Button
+        android:id="@+id/buttonTwo"
+        android:layout_width="@dimen/common_100_dp"
+        android:layout_height="@dimen/common_100_dp" />
+
 </LinearLayout>

@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RemoteViews;
+import android.widget.RemoteViewsService;
 
 import com.example.administrator.myapplication.Annotation.ShowActivity;
 import com.example.administrator.myapplication.GridViewTest.GridViewActivity;
@@ -26,15 +27,27 @@ import com.example.administrator.myapplication.R;
 public class RemoteViewTestActivity extends AppCompatActivity {
 
     private Button button;
+    private Button buttonTwo;
+    //private RemoteViewsService
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.one_button_layout);
         button = findViewById(R.id.button);
+        buttonTwo = findViewById(R.id.buttonTwo);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showCustomNotification();
+                Intent intent = new Intent(RemoteViewTestActivity.this,RemoteViewService.class);
+                startService(intent);
+            }
+        });
+
+        buttonTwo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RemoteViewTestActivity.this,RemoteViewService.class);
+                stopService(intent);
             }
         });
 
@@ -63,7 +76,6 @@ public class RemoteViewTestActivity extends AppCompatActivity {
     private void showCustomNotification() {
 
         RemoteViews remoteView;
-
         // 构建 remoteView
         remoteView = new RemoteViews(getPackageName(), R.layout.layout_notification);
       //  Button button = remoteView.
@@ -88,7 +100,9 @@ public class RemoteViewTestActivity extends AppCompatActivity {
         builder.setContentIntent(pendingIntent);
         builder.setAutoCancel(true);
         Notification notification = builder.build();
-
+       // notification.flags = Notification.FLAG_ONGOING_EVENT;
+      //  notification.flags = Notification.FLAG_AUTO_CANCEL;
+      //  notification.defaults = Notification.DEFAULT_VIBRATE;
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(1001, notification);
 
