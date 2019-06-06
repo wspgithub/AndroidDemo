@@ -1,6 +1,8 @@
 package com.example.administrator.myapplication.OkHttp;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -20,6 +22,7 @@ import java.net.Socket;
 import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -47,7 +50,7 @@ public class OkIOTestActivity extends AppCompatActivity implements View.OnClickL
     private BufferedSink mSink;
     private BufferedSource mSource;
 
-
+    private MyHandler myHandler;
     
     private TextView startServiceTv;
     private TextView connectServiceTv;
@@ -59,6 +62,7 @@ public class OkIOTestActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.okio_test_activity);
         initUI();
+        myHandler = new MyHandler();
         mExecutorClient = Executors.newCachedThreadPool();
     }
     
@@ -84,8 +88,12 @@ public class OkIOTestActivity extends AppCompatActivity implements View.OnClickL
             server = new ServerSocket(PORT);
             mExecutorService = Executors.newCachedThreadPool();
              Log.e("okio","服务器已启动...");
+             Message message = Message.obtain();
+             message.what = 0;
+             myHandler.sendMessage(message);
             Socket client = null;
             while (true) {
+                //等待一个socket访问
                 client = server.accept();
                 mList.add(client);
                 mExecutorService.execute(new Service(client));
@@ -107,6 +115,9 @@ public class OkIOTestActivity extends AppCompatActivity implements View.OnClickL
             try {
                 mSink = Okio.buffer(Okio.sink(socket));
                 mSource = Okio.buffer(Okio.source(socket));
+                Message message = Message.obtain();
+                message.what = 1;
+                myHandler.sendMessage(message);
                 sendMsg="成功连接服务器" + "(服务器发送)";
                 mSink.writeUtf8(sendMsg+"\n");
                 mSink.flush();
@@ -125,6 +136,9 @@ public class OkIOTestActivity extends AppCompatActivity implements View.OnClickL
                              Log.e("okio","receiveMsg:" + receiveMsg);
                         if (receiveMsg.equals("0")) {
                               Log.e("okio","客户端请求断开连接");
+                            Message message = Message.obtain();
+                            message.what = 2;
+                            myHandler.sendMessage(message);
                             mSink.writeUtf8("服务端断开连接" + "（服务器发送）");
                             mSink.flush();
                             mList.remove(socket);
@@ -156,8 +170,6 @@ public class OkIOTestActivity extends AppCompatActivity implements View.OnClickL
 
     public void disconnect() {
         mExecutorClient.execute(new sendService("0"));
-        mSendEditText.getText().clear();
-        mShowTextView.setText("");
     }
 
     private class sendService implements Runnable {
@@ -200,12 +212,10 @@ public class OkIOTestActivity extends AppCompatActivity implements View.OnClickL
                 for (String receiveMsg; (receiveMsg = mSource.readUtf8Line()) != null; ) {
                     Log.d("okio", "receiveMsg:" + receiveMsg);
                     final String finalReceiveMsg = receiveMsg;
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            mShowTextView.setText(finalReceiveMsg + "\n\n" + mShowTextView.getText());
-                        }
-                    });
+                    Message message = Message.obtain();
+                    message.what = 3;
+                    message.obj = finalReceiveMsg + "\n\n" + mShowTextView.getText();
+                    myHandler.sendMessage(message);
                 }
             }
         } catch (IOException e) {
@@ -274,6 +284,27 @@ public class OkIOTestActivity extends AppCompatActivity implements View.OnClickL
     }
 
 
+    private class MyHandler extends Handler{
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what){
+                case 0:
+                    mShowTextView.setText("服务器已启动...");
+                    break;
+                case 1:
+                    mShowTextView.setText("服务器已连接...");
+                    break;
+                case 2:
+                    mShowTextView.setText("服务器已断开...");
+                    break;
+                case 3:
+                    mShowTextView.setText((String)msg.obj);
+                    break;
+                default:break;
+            }
+        }
+    }
 
 //    private void test(){
 //        try {
