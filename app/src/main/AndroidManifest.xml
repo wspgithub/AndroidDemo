@@ -60,6 +60,9 @@
             android:name=".OkHttp.SocketHttpTestActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".AppConnectionTest.AppConnectionTestActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".OkHttp.OkIOTestActivity"
             android:screenOrientation="portrait" />
         <activity

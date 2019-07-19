@@ -1,10 +1,15 @@
 package com.example.administrator.myapplication.OkHttp;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.administrator.myapplication.Annotation.ShowActivity;
@@ -27,6 +32,8 @@ public class SocketHttpTestActivity  extends AppCompatActivity implements View.O
 
     private Socket socket;
     private BufferedSink sink;
+    private ImageView imShow;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,6 +45,7 @@ public class SocketHttpTestActivity  extends AppCompatActivity implements View.O
     private void init(){
         sendPost = findViewById(R.id.sendPost);
         sendPost.setOnClickListener(this);
+        imShow = findViewById(R.id.imShow);
     }
 
     @Override
@@ -81,6 +89,11 @@ public class SocketHttpTestActivity  extends AppCompatActivity implements View.O
                 os.write(sb.toString().getBytes());
 
                 InputStream is = socket.getInputStream();
+                Message message = MyHandler.obtainMessage();
+                message.arg1 = 0;
+                message.obj = is;
+                MyHandler.sendMessage(message);
+
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 byte[] bytes = new byte[1024];
                 int len = -1;
@@ -99,4 +112,21 @@ public class SocketHttpTestActivity  extends AppCompatActivity implements View.O
             e.printStackTrace();
         }
     }
+
+    private Handler MyHandler = new Handler(){
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.arg1){
+                case 0:
+                InputStream is = (InputStream)msg.obj;
+                Bitmap bitmap = BitmapFactory.decodeStream(is);
+                imShow.setImageBitmap(bitmap);
+
+                    break;
+                default:break;
+            }
+        }
+    };
 }
