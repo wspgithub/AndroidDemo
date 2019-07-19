@@ -15,11 +15,14 @@ import android.widget.TextView;
 import com.example.administrator.myapplication.Annotation.ShowActivity;
 import com.example.administrator.myapplication.R;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.nio.charset.Charset;
 
 import okio.BufferedSink;
 import okio.Okio;
@@ -70,17 +73,21 @@ public class SocketHttpTestActivity  extends AppCompatActivity implements View.O
 
     private void sendPost() {
         try {
-            socket = new Socket("218.104.133.234",80);
+            Log.e("socket",("编码格式"+Charset.defaultCharset().name()));
+            socket = new Socket("47.111.190.135",8080);
             //socket = new Socket("www.javathinker.org", 80);
           //  sink = Okio.buffer(Okio.sink(socket));
-            StringBuffer sb = new StringBuffer("GET /group1/M00/00/05/wKgB91ny4waAPklgAAMAAPDWNn0586.png HTTP/1.1\r\n");
+            StringBuffer sb = new StringBuffer("GET /forever/img/tx.txt HTTP/1.1\r\n");
             // 以下为请求头
-            sb.append("Host: 218.104.133.234\r\n");
+            sb.append("Host: 47.111.190.135\r\n");
             sb.append("User-Agent: okhttp/3.6.0\r\n");
             sb.append("Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\n");
             // 注意这里不要使用压缩 否则返回乱码
             sb.append("Accept-Encoding: \r\n");
             sb.append("Connection: keep-alive\r\n");
+
+            sb.append("Accept-Charset: utf-8\r\n");
+            sb.append("contentType: utf-8\r\n");
             // 注意这里要换行结束请求头
             sb.append("\r\n");
             Log.e("socket",sb.toString());
@@ -94,13 +101,29 @@ public class SocketHttpTestActivity  extends AppCompatActivity implements View.O
                 message.obj = is;
                 MyHandler.sendMessage(message);
 
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                byte[] bytes = new byte[1024];
-                int len = -1;
-                while ((len = is.read(bytes)) != -1) {
-                    baos.write(bytes, 0, len);
-                }
-                Log.e("socket",new String(baos.toByteArray()));
+//                String tem;
+//                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is, "utf-8"));
+//                while((tem = bufferedReader.readLine())!=null) {
+//                    System.out.println(tem);
+//                    Log.e("socket",tem);
+//                }
+
+                StringBuffer response = new StringBuffer();
+                    BufferedReader in = new BufferedReader(new InputStreamReader(is,"utf-8"));
+                    String inputLine;
+
+                    while ((inputLine = in.readLine()) != null) {
+                        response.append(inputLine);
+                    }
+                Log.e("socket",response.toString());
+
+//                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//                byte[] bytes = new byte[1024];
+//                int len = -1;
+//                while ((len = is.read(bytes)) != -1) {
+//                    baos.write(bytes, 0, len);
+//                }
+               // Log.e("socket",new String(baos.toByteArray()));
                 socket.close();
             } catch (IOException e) {
                 // TODO Auto-generated catch block
@@ -120,9 +143,9 @@ public class SocketHttpTestActivity  extends AppCompatActivity implements View.O
             super.handleMessage(msg);
             switch (msg.arg1){
                 case 0:
-                InputStream is = (InputStream)msg.obj;
-                Bitmap bitmap = BitmapFactory.decodeStream(is);
-                imShow.setImageBitmap(bitmap);
+//                InputStream is = (InputStream)msg.obj;
+//                Bitmap bitmap = BitmapFactory.decodeStream(is);
+//                imShow.setImageBitmap(bitmap);
 
                     break;
                 default:break;

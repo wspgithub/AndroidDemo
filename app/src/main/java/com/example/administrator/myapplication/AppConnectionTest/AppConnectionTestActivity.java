@@ -1,5 +1,7 @@
 package com.example.administrator.myapplication.AppConnectionTest;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -8,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.administrator.myapplication.Annotation.ShowActivity;
@@ -23,12 +26,14 @@ public class AppConnectionTestActivity extends AppCompatActivity {
 
     private Button button;
     private TextView textView;
+    private ImageView imageView;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_connection);
         button = findViewById(R.id.getData);
         textView = findViewById(R.id.showTv);
+        imageView = findViewById(R.id.imShow);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,7 +49,9 @@ public class AppConnectionTestActivity extends AppCompatActivity {
     }
 
     private void getData(){
-        String url="http://mngtest.netvoxcloud.com:80/smarthome/api/user.do?seq=Y03IkVn6x4idzWeBjaD_1_0_-*GET_HOMES-*[18659284291]&timestamp=1563500500000&user=18659284291&data=%7B%22pagenum%22%3A1%2C%22user%22%3A%2218659284291%22%2C%22op%22%3A%22list_house%22%2C%22pagesize%22%3A0%7D&sign=8d5f770961fa7f6fa696a85f1630c515";
+        //String url="http://mngtest.netvoxcloud.com:80/smarthome/api/user.do?seq=Y03IkVn6x4idzWeBjaD_1_0_-*GET_HOMES-*[18659284291]&timestamp=1563500500000&user=18659284291&data=%7B%22pagenum%22%3A1%2C%22user%22%3A%2218659284291%22%2C%22op%22%3A%22list_house%22%2C%22pagesize%22%3A0%7D&sign=8d5f770961fa7f6fa696a85f1630c515";
+        String url = "http://www.iloveturong.com:8080/V2Test/servlet/login";
+        //String url = "http://www.iloveturong.com:8080/forever/img/pig.jpg";
         URL reqURL;
         String ret = "";
         HttpURLConnection uRLConnection = null;
@@ -124,6 +131,9 @@ public class AppConnectionTestActivity extends AppCompatActivity {
                     String st = (String) msg.obj;
                     textView.setText("");
                     textView.setText(st);
+//                    InputStream is = (InputStream)msg.obj;
+//                    Bitmap bitmap = BitmapFactory.decodeStream(is);
+//                    imageView.setImageBitmap(bitmap);
                     break;
                 default:break;
             }
