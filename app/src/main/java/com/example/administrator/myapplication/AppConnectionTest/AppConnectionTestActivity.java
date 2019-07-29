@@ -50,7 +50,7 @@ public class AppConnectionTestActivity extends AppCompatActivity {
 
     private void getData(){
         //String url="http://mngtest.netvoxcloud.com:80/smarthome/api/user.do?seq=Y03IkVn6x4idzWeBjaD_1_0_-*GET_HOMES-*[18659284291]&timestamp=1563500500000&user=18659284291&data=%7B%22pagenum%22%3A1%2C%22user%22%3A%2218659284291%22%2C%22op%22%3A%22list_house%22%2C%22pagesize%22%3A0%7D&sign=8d5f770961fa7f6fa696a85f1630c515";
-        String url = "http://www.iloveturong.com:8080/V2Test/servlet/login";
+        String url = "http://www.iloveturong.com:8080/forever/img/tx.txt";
         //String url = "http://www.iloveturong.com:8080/forever/img/pig.jpg";
         URL reqURL;
         String ret = "";

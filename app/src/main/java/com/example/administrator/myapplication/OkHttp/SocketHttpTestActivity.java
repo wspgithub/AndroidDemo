@@ -1,7 +1,5 @@
 package com.example.administrator.myapplication.OkHttp;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -15,28 +13,26 @@ import android.widget.TextView;
 import com.example.administrator.myapplication.Annotation.ShowActivity;
 import com.example.administrator.myapplication.R;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.Socket;
 import java.nio.charset.Charset;
 
 import okio.BufferedSink;
+import okio.BufferedSource;
 import okio.Okio;
 
 @ShowActivity
 public class SocketHttpTestActivity  extends AppCompatActivity implements View.OnClickListener {
 
     private TextView sendPost;
+    private TextView txShow;
 
 
     private Socket socket;
     private BufferedSink sink;
     private ImageView imShow;
-
+    private BufferedSink mSink;
+    private BufferedSource mSource;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,6 +44,10 @@ public class SocketHttpTestActivity  extends AppCompatActivity implements View.O
     private void init(){
         sendPost = findViewById(R.id.sendPost);
         sendPost.setOnClickListener(this);
+
+        txShow = findViewById(R.id.txShow);
+        txShow.setOnClickListener(this);
+
         imShow = findViewById(R.id.imShow);
     }
 
@@ -92,14 +92,21 @@ public class SocketHttpTestActivity  extends AppCompatActivity implements View.O
             sb.append("\r\n");
             Log.e("socket",sb.toString());
             try {
-                OutputStream os = socket.getOutputStream();
-                os.write(sb.toString().getBytes());
 
-                InputStream is = socket.getInputStream();
-                Message message = MyHandler.obtainMessage();
-                message.arg1 = 0;
-                message.obj = is;
-                MyHandler.sendMessage(message);
+
+                mSink = Okio.buffer(Okio.sink(socket));
+                mSource = Okio.buffer(Okio.source(socket));
+
+                mSink.writeUtf8(sb+"\n");
+                mSink.flush();
+
+//                OutputStream os = socket.getOutputStream();
+//                os.write(sb.toString().getBytes());
+//                InputStream is = socket.getInputStream();
+//                Message message = MyHandler.obtainMessage();
+//                message.arg1 = 0;
+//                message.obj = is;
+//                MyHandler.sendMessage(message);
 
 //                String tem;
 //                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is, "utf-8"));
@@ -109,14 +116,15 @@ public class SocketHttpTestActivity  extends AppCompatActivity implements View.O
 //                }
 
                 StringBuffer response = new StringBuffer();
-                    BufferedReader in = new BufferedReader(new InputStreamReader(is,"utf-8"));
+//                    BufferedReader in = new BufferedReader(new InputStreamReader(is,"utf-8"));
                     String inputLine;
-
-                    while ((inputLine = in.readLine()) != null) {
+                    while ((inputLine = mSource.readUtf8Line()) != null) {
                         response.append(inputLine);
                     }
-                Log.e("socket",response.toString());
-
+                Message message = MyHandler.obtainMessage();
+                message.arg1 = 1;
+                message.obj = response.toString();
+                MyHandler.sendMessage(message);
 //                ByteArrayOutputStream baos = new ByteArrayOutputStream();
 //                byte[] bytes = new byte[1024];
 //                int len = -1;
@@ -145,7 +153,9 @@ public class SocketHttpTestActivity  extends AppCompatActivity implements View.O
                 case 0:
 //                InputStream is = (InputStream)msg.obj;
 //                Bitmap bitmap = BitmapFactory.decodeStream(is);
-//                imShow.setImageBitmap(bitmap);
+
+                case 1:
+                    txShow.setText((String)msg.obj);
 
                     break;
                 default:break;

@@ -39,6 +39,12 @@
         </receiver>
 
         <activity
+            android:name=".GlideTest.GlideTestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".OkHttp.MyOkhttp.MyOkhttpTestActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".RemoteViewTest.RemoteViewTestActivity"
             android:screenOrientation="portrait" />
         <activity
