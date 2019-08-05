@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(mainRecyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.getAdapter().notifyDataSetChanged();
-        startActivityForResult();
+
     }
     ////home
 

@@ -11,10 +11,12 @@ import android.view.View;
 
 import com.example.administrator.myapplication.Annotation.ShowActivity;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -43,7 +45,7 @@ public class OkHttpTestActivity extends AppCompatActivity {
         //1.创建OkHttpClient对象
         OkHttpClient okHttpClient = new OkHttpClient();
         //2.创建Request对象，设置一个url地址（百度地址）,设置请求方式。
-        Request request = new Request.Builder().url("http://www.baidu.com").method("GET",null).build();
+        Request request = new Request.Builder().url("http://www.iloveturong.com:8080/forever/img/tx.txt").method("GET",null).build();
         //3.创建一个call对象,参数就是Request请求对象
         Call call = okHttpClient.newCall(request);
         //4.请求加入调度，重写回调方法
@@ -56,7 +58,14 @@ public class OkHttpTestActivity extends AppCompatActivity {
             //请求成功执行的方法
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                Log.e("okhttp","成功");
+                StringBuffer stringBuffer = new StringBuffer();
+                BufferedReader in = new BufferedReader(new InputStreamReader(response.body().byteStream(),"utf-8"));
+                String inputLine;
+
+                while ((inputLine = in.readLine()) != null) {
+                    stringBuffer.append(inputLine);
+                }
+                Log.e("okhttp","成功"+stringBuffer.toString());
             }
         });
     }

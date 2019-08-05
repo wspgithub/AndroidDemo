@@ -4,29 +4,18 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
-    <TextView
-        android:id="@+id/sendPost"
-        android:layout_width="@dimen/common_100_dp"
-        android:layout_height="@dimen/common_100_dp"
-        android:gravity="center"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="@dimen/text_20_sp"
-        android:text="发送请求"/>
-
-    <ImageView
-        android:id="@+id/imShow"
+    <Button
+        android:id="@+id/send"
         android:layout_width="@dimen/common_100_dp"
         android:layout_height="@dimen/common_100_dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sendPost"/>
+        app:layout_constraintTop_toTopOf="parent"/>
+
 
     <TextView
-        android:id="@+id/txShow"
-        android:layout_width="match_parent"
+        android:id="@+id/tv"
+        android:layout_width="0dp"
         android:layout_height="@dimen/common_300_dp"
         android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
