@@ -1,6 +1,5 @@
 package com.example.administrator.myapplication;
 
-import android.content.Context;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,8 +9,8 @@ import android.util.Log;
 
 
 import com.example.administrator.myapplication.Annotation.ShowActivity;
+import com.example.administrator.myapplication.OkHttp.OkIOTestActivity;
 
-import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -30,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.mRecyclerView);
         scanPackage();
+       // AllClass();
         init();
     }
 
@@ -38,8 +38,13 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(mainRecyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.getAdapter().notifyDataSetChanged();
+        startActivityForResult();
     }
     ////home
+
+    private void AllClass(){
+        arrayList.add(new MainListItem("OKIO测试", OkIOTestActivity.class));
+    }
 
     public void scanPackage() {
         try {

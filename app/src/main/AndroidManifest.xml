@@ -3,63 +3,108 @@
     package="com.example.administrator.myapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
+        android:name=".MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".MainApplication"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.administrator.myapplication.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
-            android:name="com.example.administrator.myapplication.SeekBarTest.SeekBarTestActivity"
+            android:name=".Test.Test"
             android:screenOrientation="portrait" />
 
-        <activity
-            android:name="com.example.administrator.myapplication.FramentTest.TabFramentTest"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.example.administrator.myapplication.DataBindingTest.DataBingTestActivity"
-            android:screenOrientation="portrait" />
+        <receiver android:name=".RemoteViewTest.CustomAppWidgetProvider">
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/small_remote" />
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.shenhuniurou.appwidgetprovider.click.one" />
+                <action android:name="com.shenhuniurou.appwidgetprovider.click.two" />
+                <action android:name="com.shenhuniurou.appwidgetprovider.click.three" />
+                <action android:name="com.shenhuniurou.appwidgetprovider.click.four" />
+            </intent-filter>
+        </receiver>
 
         <activity
-            android:name="com.example.administrator.myapplication.ArchitectureComponents.HandingLifecycleActivity"
+            android:name=".RemoteViewTest.RemoteViewTestActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.administrator.myapplication.OkHttp.OkHttpTestActivity"
+            android:name=".SeekBarTest.SeekBarTestActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.administrator.myapplication.ThreadPoolTest.ThreadPoolActivty"
+            android:name=".FramentTest.TabFramentTest"
             android:screenOrientation="portrait" />
-
+        <activity
+            android:name=".DataBindingTest.DataBingTestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ArchitectureComponents.HandingLifecycleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".OkHttp.OkHttpTestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".OkHttp.SocketHttpTestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".OkHttp.OkIOTestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ThreadPoolTest.ThreadPoolActivty"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".GridViewTest.GridViewActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ArchitectureComponents.Paging.PagingActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".AIDLTest.BookManagerClient"
-            android:screenOrientation="portrait" >
-        </activity>
+        <activity
+            android:name=".AIDLTest.BookManagerClient"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".RecyclerViewDragTest.RecyclerViewDragActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".HandlerTest.HandlerTestActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".Components.SpinnerActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".anim.AnimActivity"
+            android:screenOrientation="portrait"></activity>
 
-        <activity android:name=".RecyclerViewDragTest.RecyclerViewDragActivity"
-            android:screenOrientation="portrait" >
-        </activity>
+        <service
+            android:name=".AIDLTest.BookManagerService"
+            android:process=":remote"></service>
 
-        <activity android:name=".HandlerTest.HandlerTestActivity"
-            android:screenOrientation="portrait" >
-        </activity>
+        <service
+            android:name=".RemoteViewTest.RemoteViewService"
+            android:process=":remote"></service>
 
+
+        <receiver android:name=".RemoteViewTest.NewAppWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/new_app_widget_info" />
+        </receiver>
         <activity android:name=".service.MyServiceActivity"
             android:screenOrientation="portrait" >
         </activity>
