@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         scanPackage();
        // AllClass();
         init();
+        Log.e("","");
     }
 
     private void init(){

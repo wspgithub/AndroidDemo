@@ -14,8 +14,13 @@ import com.example.administrator.myapplication.Annotation.ShowActivity;
 import com.example.administrator.myapplication.R;
 
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.nio.charset.Charset;
+
+import javax.net.SocketFactory;
 
 import okio.BufferedSink;
 import okio.BufferedSource;
@@ -49,6 +54,16 @@ public class SocketHttpTestActivity  extends AppCompatActivity implements View.O
         txShow.setOnClickListener(this);
 
         imShow = findViewById(R.id.imShow);
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                CreatSocket();
+            }
+        };
+
+        Thread thread = new Thread(runnable);
+        thread.start();
+
     }
 
     @Override
@@ -71,12 +86,39 @@ public class SocketHttpTestActivity  extends AppCompatActivity implements View.O
          }
     }
 
-    private void sendPost() {
+    private void CreatSocket(){
+        InetAddress ip2= null;
         try {
-            Log.e("socket",("编码格式"+Charset.defaultCharset().name()));
-            socket = new Socket("47.111.190.135",8080);
-            //socket = new Socket("www.javathinker.org", 80);
-          //  sink = Okio.buffer(Okio.sink(socket));
+            ip2 = InetAddress.getByName("www.iloveturong.com");
+            Log.e("socket",ip2.getHostAddress());//47.111.190.135
+            Log.e("socket",ip2.getHostName());// www.iloveturong.com
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+
+        try {
+        Log.e("socket",("编码格式"+Charset.defaultCharset().name()));
+        if(socket == null) {
+            socket = SocketFactory.getDefault().createSocket();
+            // socket = new Socket("47.111.190.135",8080);
+            // InetSocketAddress inetSocketAddress = InetSocketAddress.createUnresolved("47.111.190.135", 8080);
+            InetSocketAddress inetSocketAddress = new InetSocketAddress("47.111.190.135", 8080);
+            socket.setKeepAlive(true);
+            socket.setTcpNoDelay(true);
+            socket.connect(inetSocketAddress, 100000);
+        }} catch (IOException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+        // socket = new Socket("47.111.190.135",8080);
+        //socket = new Socket("www.javathinker.org", 80);
+        //  sink = Okio.buffer(Okio.sink(socket));
+
+
+    }
+
+    private void sendPost() {
+
             StringBuffer sb = new StringBuffer("GET /forever/img/tx.txt HTTP/1.1\r\n");
             // 以下为请求头
             sb.append("Host: 47.111.190.135\r\n");
@@ -99,7 +141,6 @@ public class SocketHttpTestActivity  extends AppCompatActivity implements View.O
 
                 mSink.writeUtf8(sb+"\n");
                 mSink.flush();
-
 //                OutputStream os = socket.getOutputStream();
 //                os.write(sb.toString().getBytes());
 //                InputStream is = socket.getInputStream();
@@ -139,9 +180,7 @@ public class SocketHttpTestActivity  extends AppCompatActivity implements View.O
             }
 
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
     }
 
     private Handler MyHandler = new Handler(){
