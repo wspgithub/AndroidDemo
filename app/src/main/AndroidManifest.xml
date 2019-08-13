@@ -127,6 +127,25 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/new_app_widget_info" />
         </receiver>
+        <activity android:name=".service.MyServiceActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <activity android:name=".LifeTest.ActivityA"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <activity android:name=".LifeTest.ActivityB"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <service android:name=".AIDLTest.BookManagerService"
+            android:process=":remote"
+            >
+        </service>
+
+        <service android:name=".service.MyService"></service>
+
     </application>
 
 </manifest>
