@@ -52,6 +52,9 @@
         </receiver>
 
         <activity
+            android:name=".Test.StoryReadActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".GlideTest.GlideTestActivity"
             android:screenOrientation="portrait" />
         <activity
