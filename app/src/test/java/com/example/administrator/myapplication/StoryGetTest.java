@@ -3,19 +3,19 @@ package com.example.administrator.myapplication;
 import android.content.Context;
 import android.util.Log;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+
 import java.io.IOException;
-import java.io.InputStream;
+
 import java.io.InputStreamReader;
+import java.net.URLEncoder;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -103,6 +103,17 @@ public class StoryGetTest {
         start = content.indexOf("href=\"");
         content = content.substring(start+6,content.length());
         return content;
+    }
+
+    public static String getNovelUrl(String keywords) throws IOException {
+
+        String url = "https://sou.xanbhx.com/search?siteid=qula&q=" + URLEncoder.encode(keywords, "utf-8");
+        Document document = Jsoup.connect(url).get();
+        for (Element a : document.getElementsByTag("a")) {
+            if (keywords.equals(a.text().trim()))
+                return a.attr("href");
+        }
+        return null;
     }
 
 }
