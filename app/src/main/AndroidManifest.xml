@@ -55,6 +55,12 @@
             android:name=".Test.StoryReadActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".Test.GetStorySeationListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Test.StoryReadActivityno"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".GlideTest.GlideTestActivity"
             android:screenOrientation="portrait" />
         <activity
