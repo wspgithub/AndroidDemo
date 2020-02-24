@@ -17,6 +17,7 @@ import com.example.administrator.myapplication.R;
 public class AnimActivity extends AppCompatActivity {
 
     private Button button;
+    private Button button2;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
