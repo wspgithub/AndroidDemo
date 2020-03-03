@@ -38,7 +38,7 @@ public class BookManagerClient extends AppCompatActivity {
             iBookManager  = IBookManager.Stub.asInterface(service);
 
             try {
-                service.linkToDeath(deathRecipient,0);
+               // service.linkToDeath(deathRecipient,0);
                 List<Book> list = iBookManager.getBookList();
                 for (Book book:list){
                     Log.e("打印",book.getBookName());
