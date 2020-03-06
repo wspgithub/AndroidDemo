@@ -115,7 +115,7 @@
             android:name=".Components.SpinnerActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".anim.AnimActivity"
+            android:name=".animator.AnimActivity"
             android:screenOrientation="portrait"></activity>
 
         <activity

@@ -1,4 +1,4 @@
-package com.example.administrator.myapplication.anim;
+package com.example.administrator.myapplication.animator;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
