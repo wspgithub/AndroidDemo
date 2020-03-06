@@ -118,6 +118,14 @@
             android:name=".anim.AnimActivity"
             android:screenOrientation="portrait"></activity>
 
+        <activity
+            android:name=".MemoryTest.MemoryTest"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".MemoryTest.MemoryTestTwo"
+            android:screenOrientation="portrait"></activity>
+
         <service
             android:name=".AIDLTest.BookManagerService"
             android:process=":remote"></service>
