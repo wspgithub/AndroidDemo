@@ -11,8 +11,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
+import com.example.administrator.myapplication.Annotation.ShowActivity;
 import com.example.administrator.myapplication.R;
-
+@ShowActivity
 public class PropertyAnimationActivity extends AppCompatActivity {
 
 
@@ -26,7 +27,8 @@ public class PropertyAnimationActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startObjectAnimatorAnim(button2);
+                //startObjectAnimatorAnim(button2);
+                startValueAnimatorAnim(button2);
             }
         });
         button2 = findViewById(R.id.buttonTwo);

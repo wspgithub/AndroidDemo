@@ -125,6 +125,19 @@
         <activity
             android:name=".MemoryTest.MemoryTestTwo"
             android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".animator.PropertyAnimation.PropertyAnimationActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".View.MyViewActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".View.MyMapViewActivity"
+            android:screenOrientation="portrait"></activity>
+
+
 
         <service
             android:name=".AIDLTest.BookManagerService"
