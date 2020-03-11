@@ -169,6 +169,24 @@
             android:screenOrientation="portrait" >
         </activity>
 
+        <activity android:name=".AccessibilityService.MyAccessibilityActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <service
+            android:name=".AccessibilityService.StatusAccessibilityService"
+            android:label="辅助服务测试"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/allocation"/>
+
+        </service>
+
         <service android:name=".AIDLTest.BookManagerService"
             android:process=":remote"
             >
