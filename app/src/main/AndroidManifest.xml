@@ -18,6 +18,8 @@
     <!--允许应用程序完全使用网络-->
     <uses-permission android:name="android.permission.INTERNET"/>
 
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <application
         android:name=".MainApplication"
         android:allowBackup="true"
@@ -115,7 +117,7 @@
             android:name=".Components.SpinnerActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".anim.AnimActivity"
+            android:name=".animator.AnimActivity"
             android:screenOrientation="portrait"></activity>
 
         <activity
@@ -125,6 +127,19 @@
         <activity
             android:name=".MemoryTest.MemoryTestTwo"
             android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".animator.PropertyAnimation.PropertyAnimationActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".View.MyViewActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".View.MyMapViewActivity"
+            android:screenOrientation="portrait"></activity>
+
+
 
         <service
             android:name=".AIDLTest.BookManagerService"
@@ -155,6 +170,24 @@
         <activity android:name=".LifeTest.ActivityB"
             android:screenOrientation="portrait" >
         </activity>
+
+        <activity android:name=".AccessibilityService.MyAccessibilityActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <service
+            android:name=".AccessibilityService.StatusAccessibilityService"
+            android:label="辅助服务测试"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/allocation"/>
+
+        </service>
 
         <service android:name=".AIDLTest.BookManagerService"
             android:process=":remote"
