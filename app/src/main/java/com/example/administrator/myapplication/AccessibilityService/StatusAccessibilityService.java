@@ -15,6 +15,11 @@ public class StatusAccessibilityService extends AccessibilityService {
 
     private MyBinder myBinder = new MyBinder();
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        AccessibilityServiceUtil.getInStance().setStatusAccessibilityService(this);
+    }
 
     @Override
     protected void onServiceConnected() {
@@ -27,11 +32,11 @@ public class StatusAccessibilityService extends AccessibilityService {
         //在服务正常的情况控制服务，isService默认为false,可在Activity中设置为true即可
         int eventType = event.getEventType();
         switch (eventType) {
-            case AccessibilityEvent.TYPE_NOTIFICATION_STATE_CHANGED:
-                AccessibilityServiceUtil.coordinatesClick(this, 500, 500) ;
+            case AccessibilityEvent.TYPE_VIEW_CLICKED:
+                Log.e("","");
                 break;
-            case AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED:
-                AccessibilityServiceUtil.coordinatesClick(this, 500, 500);
+            case AccessibilityEvent.TYPE_VIEW_FOCUSED:
+                Log.e("","");
                 break;
             default:
                 break;
@@ -41,6 +46,11 @@ public class StatusAccessibilityService extends AccessibilityService {
     @Override
     public void onInterrupt() {
 
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
     }
 
     class MyBinder extends Binder {
