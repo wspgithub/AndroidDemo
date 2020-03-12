@@ -26,6 +26,7 @@ import android.widget.Toast;
 import com.example.administrator.myapplication.Annotation.ShowActivity;
 import com.example.administrator.myapplication.R;
 import com.example.administrator.myapplication.service.MyService;
+import com.orhanobut.logger.Logger;
 
 @ShowActivity
 public class MyAccessibilityActivity extends AppCompatActivity implements MyWindow.StartService,MyWindow.StopService {
@@ -146,19 +147,24 @@ public class MyAccessibilityActivity extends AppCompatActivity implements MyWind
         public volatile boolean exit = false;
         public void run() {
             try {
-                AccessibilityServiceUtil.getInStance().coordinatesClick(AccessibilityServiceUtil.getInStance().getStatusAccessibilityService(), 455/1920*ScreenHeigth, 711/1080*ScreenWidth);
+                AccessibilityServiceUtil.getInStance().coordinatesClick(AccessibilityServiceUtil.getInStance().getStatusAccessibilityService(), getValue(455,1920,ScreenHeigth), getValue(711,1080,ScreenWidth));
                 Thread.sleep(3000);
                 while (!exit) {
-                    Log.e("YH正在运行", "");
-                    AccessibilityServiceUtil.getInStance().coordinatesClick(AccessibilityServiceUtil.getInStance().getStatusAccessibilityService(), 1744/1920*ScreenHeigth, 945/1080*ScreenWidth);
+                    Logger.e("YH正在运行", "");
+                    AccessibilityServiceUtil.getInStance().coordinatesClick(AccessibilityServiceUtil.getInStance().getStatusAccessibilityService(), getValue(1744,1920,ScreenHeigth), getValue(945,1080,ScreenWidth));
                     Thread.sleep(50000);
-                    AccessibilityServiceUtil.getInStance().coordinatesClick(AccessibilityServiceUtil.getInStance().getStatusAccessibilityService(), 1020/1920*ScreenHeigth, 847/1080*ScreenWidth);
+                    AccessibilityServiceUtil.getInStance().coordinatesClick(AccessibilityServiceUtil.getInStance().getStatusAccessibilityService(), getValue(1020,1920,ScreenHeigth), getValue(847,1080,ScreenWidth));
                     Thread.sleep(2000);
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    private int getValue(int a,int b,int c){
+        float f = a/b;
+        return (int)f*c;
     }
 
     @Override
